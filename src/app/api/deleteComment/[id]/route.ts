@@ -3,10 +3,13 @@ import { getUser } from "@/db/user";
 import { currentUser } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
+interface Context {
+    params: { id: string };
+}
 
-export async function DELETE(req: NextRequest, {params}: {params: { id: string }}) {
+export async function DELETE(req: NextRequest, context: Context): Promise<NextResponse> {
     try {
-        const { id: commentId } = params;
+        const { id: commentId } = context.params;
         const clerkUser = await currentUser();
         const user = clerkUser ? await getUser(clerkUser?.id) : null;
 
