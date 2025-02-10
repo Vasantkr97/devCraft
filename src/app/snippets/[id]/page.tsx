@@ -106,7 +106,6 @@ function page() {
             />
           </div>
 
-          <Comments snippetId={snippet.id} />
         </div>
       </main>
     </div>
