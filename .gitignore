@@ -1,0 +1,42 @@
+
+.env
+.env.local
+.env.*.local
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+
+# Dependency lockfiles (optional)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build output
+dist/
+.out/
+.next/
+.vscode/
+.idea/
+coverage/  # Code coverage reports
+
+
+
+.clerk/
+clerk.json
+
+# VS Code
+.vscode/
+
+# IntelliJ, WebStorm, PhpStorm, etc.
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-workspace
+
+# TypeScript build files
+*.tsbuildinfo
