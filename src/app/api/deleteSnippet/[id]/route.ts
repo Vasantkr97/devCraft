@@ -2,7 +2,7 @@ import { deleteSnippet } from "@/db/snippet";
 import { NextResponse } from "next/server";
 
 
-export async function DELETE(req: Request, { params }: { params: { id: string} }) {
+export async function DELETE(req: Request, { params }: { params: Promise<{ id: string}> }) {
     try {
         const snippetId = params?.id;
 
