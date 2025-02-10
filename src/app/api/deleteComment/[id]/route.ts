@@ -4,11 +4,11 @@ import { currentUser } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
 
-export async function DELETE({params}: {params: { id: string }}) {
+export async function DELETE(req: NextRequest, {params}: {params: { id: string }}) {
     try {
-        const { id: commentId } =  await params;
+        const { id: commentId } = params;
         const clerkUser = await currentUser();
-        const user = clerkUser ? getUser(clerkUser?.id) : null;
+        const user = clerkUser ? await getUser(clerkUser?.id) : null;
 
         if (!user) throw new Error("Not authenticated!")
 
