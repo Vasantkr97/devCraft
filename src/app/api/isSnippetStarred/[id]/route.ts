@@ -3,7 +3,7 @@ import { getUser } from "@/db/user";
 import { currentUser } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest, { params }: { params: { id: string }}) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string}> }) {
 
     try {
         const { id: snippetId } = await params;
