@@ -4,7 +4,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
 
-export async function DELETE(req: NextRequest, {params}: {params: { id: string }}) {
+export async function DELETE({params}: {params: { id: string }}) {
     try {
         const { id: commentId } =  await params;
         const clerkUser = await currentUser();
