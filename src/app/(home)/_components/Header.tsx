@@ -1,13 +1,14 @@
-import { Blocks, Code2 } from 'lucide-react';
+import { Blocks, Code2, SignpostIcon } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
 import ThemeSelector from './ThemeSelector';
 import LanguageSelector from './LanguageSelector';
-import { SignedIn } from '@clerk/nextjs';
+import { SignedIn, SignedOut, SignUpButton } from '@clerk/nextjs';
 import RunButton from './RunButton';
 import HeaderProfileBtn from './HeaderProfileBtn';
 import { getUser } from '@/db/user';
 import { currentUser } from '@clerk/nextjs/server';
+import SignupButton from '@/components/SignupButton';
 
 
 async function Header() {
@@ -75,9 +76,23 @@ async function Header() {
             <RunButton />
           </SignedIn>
 
-          <div className='pl-3 border-l border-gray-800'>
-            <HeaderProfileBtn />
-          </div>
+            <div className='flex items-center justify-center'>
+              <SignedOut>
+                        <SignUpButton mode="modal">
+                  <button
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg
+                        transition-all duration-200 font-medium shadow-lg shadow-blue-500/20"
+                  >
+                    <span>Sign Up</span>
+                  </button>
+                </SignUpButton>
+              </SignedOut>
+
+              <div className='pl-3 border-l border-gray-800'>
+                <HeaderProfileBtn />
+              </div>
+            </div>
+          
         </div>
       </div>
      </div>
